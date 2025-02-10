@@ -46,6 +46,7 @@
     padding: 14px 25px;
     border-radius: 50px;
     border: 2px solid white;
+    transition: 0.6s;
     cursor: pointer;
 }
 .hero-connect:hover{
