@@ -55,3 +55,30 @@
     gap: 30px;
     border-color: #b224e6;
 }
+@media(max-width:768px){
+    .mywork{
+        gap: 50px;
+        margin: 60px 30px;
+        align-items: start;
+    }
+    .mywork-title h1{
+        padding: 0;
+        font-size: 50px;
+    }
+    .mywork-title img{
+        width: 170px;
+    }
+    .mywork-container{
+        gap: 30px;
+        grid-template-columns: 1fr 1fr;
+    }
+    .mywork-container img{
+        width: 100%;
+        height: 100%;
+    }
+    .mywork-showmore{
+        padding: 12px 20px;
+        font-size: 18px;
+        margin: 50px auto;
+    }
+}

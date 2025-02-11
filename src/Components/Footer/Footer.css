@@ -67,3 +67,17 @@
     transform: scale(1.1);
     transition: 0.5s;
 }
+@media(max-width:768px){
+    .footer{
+        margin: 60px 30px;
+    }
+    .footer-top{
+        gap: 50px;
+        flex-direction: column;
+    }
+    .footer-bootom{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+}
