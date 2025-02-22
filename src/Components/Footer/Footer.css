@@ -41,12 +41,21 @@
     font-family: Outfit;
     transition: 0.3s;
     color: #a0a0a0;
+    flex: 1;
 }
 .footer-subscribe{
     font-size: 18px;
     padding: 15px 50px;
     border-radius: 50px;
     background: linear-gradient(262deg, #b224e6 0.36%,#6023e1 102%);
+    transition: 0.5s;
+    cursor: pointer;
+}
+.footer-subscribed{
+    font-size: 18px;
+    padding: 15px 50px;
+    border-radius: 50px;
+    border: 2px solid white;
     transition: 0.5s;
     cursor: pointer;
 }
@@ -58,7 +67,14 @@
 .footer-bottom-right{
     display: flex;
     gap: 50px;
-    margin-bottom: 50px;
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.social-media a{
+    color: white;
 }
 .footer-email-input:hover{
     border: 2px solid white;
@@ -66,6 +82,14 @@
 .footer-subscribe:hover{
     transform: scale(1.1);
     transition: 0.5s;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+.error-input{
+    border: 2px solid red;
 }
 @media(max-width:768px){
     .footer{

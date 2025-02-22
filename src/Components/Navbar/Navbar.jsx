@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import underline from "../../assets/nav_underline.svg";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import menu_open from "../../assets/menu_open.svg";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import menu_close from "../../assets/menu_close.svg";
 
 const Navbar = () => {
@@ -58,11 +58,6 @@ const Navbar = () => {
           {menu === "contact" ? <img src={underline} alt="" /> : <></>}
         </li>
       </ul>
-      <div className="nav-connect">
-        <AnchorLink className="anchor-link" offset={50} href="#contact">
-          Connect With Me
-        </AnchorLink>
-      </div>
     </div>
   );
 };

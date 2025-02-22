@@ -5,10 +5,15 @@
   gap: 35px;
 }
 .hero img {
-  width: 200px;
-  height: 180px;
+  width: 204px;
+  height: 200px;
   margin-top: 20px;
   border-radius: 50%;
+}
+.hero img:hover{
+    transition: 0.5s;
+    transform: scale(1.05);
+    box-shadow: 2px 2px 34px 8px #6023e1, 0 0 36px 19px #b224e6;
 }
 .hero h1 {
   text-align: center;
@@ -42,7 +47,7 @@
   cursor: pointer;
 }
 .hero-resume {
-  padding: 14px 25px;
+  padding: 14px 20px;
   border-radius: 50px;
   border: 2px solid white;
   transition: 0.6s;
@@ -53,6 +58,29 @@
 }
 .hero-resume:hover {
   border-color: #b224e6;
+}
+.hero-download-resume{
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 14px 20px;
+    display: flex;
+    font-size: 24px;
+    font-weight: 400;
+    align-items: center;
+    gap: 30px;
+    transition: 0.6s;
+    cursor: pointer;
+}
+.hero-download-resume:hover{
+    border-color: #b224e6;
+    color: #b224e6;
+}
+.hero-download-resume:hover i{
+    color: #b224e6;
+}
+.hero-download-resume i {
+    color: white;
+    transition: 0.6s;
 }
 @media (max-width: 768px) {
   .hero img {
@@ -82,6 +110,10 @@
     border-radius: 40px;
   }
   .hero-resume{
+    padding: 20px 30px;
+    border-radius: 40px;
+  }
+  .hero-download-resume{
     padding: 20px 30px;
     border-radius: 40px;
   }
