@@ -59,7 +59,7 @@
     transition: 0.5s;
     cursor: pointer;
 }
-.footer-bootom{
+.footer-bottom{
     display: flex;
     justify-content: space-between;
     font-size: 18px;
