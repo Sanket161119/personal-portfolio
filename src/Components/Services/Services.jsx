@@ -2,7 +2,7 @@
 import React from 'react'
 import './Services.css'
 import Services_Data from '../../assets/services_data'
-import infinite from "../../assets/infinite.PNG";
+import infinite from "../../assets/infinite.svg";
 import arrow from '../../assets/arrow_icon.svg'
 
 const Services = () => {

@@ -2,7 +2,7 @@
 import React from "react";
 import "./About.css";
 import profile_image from "../../assets/profile_image.jpg";
-import infinite from "../../assets/infinite.PNG";
+import infinite from "../../assets/infinite.svg";
 
 const About = () => {
   return (
