@@ -26,11 +26,14 @@ const Footer = () => {
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    if (validateEmail(e.target.value)) {
-      setEmailError(""); // Clear error if email is valid
+    const inputValue = e.target.value;
+    setEmail(inputValue);
+
+    // Validate email and set error state
+    if (validateEmail(inputValue)) {
+        setEmailError(""); // Clear error if email is valid
     } else {
-      setEmailError("Please enter a valid email address.");
+        setEmailError("Please enter a valid email address.");
     }
   };
 
@@ -42,7 +45,7 @@ const Footer = () => {
           <p>Welcome to our website! Stay updated with our latest news.</p>
         </div>
         <div className="footer-top-right">
-          <div className="footer-email-input">
+          <div className={emailError ? "footer-email-input-error" : "footer-email-input"}>
             <img src={user_icon} alt="" />
             <input
               className={emailError ? "error-input" : ""}

@@ -76,8 +76,23 @@
 .social-media a{
     color: white;
 }
-.footer-email-input:hover{
-    border: 2px solid white;
+.footer-email-input-error{
+    display: flex;
+    gap: 30px;
+    padding: 20px 30px;
+    border-radius: 50px;
+    background: #32323b;
+    border: 2px solid red;
+}
+.footer-email-input-error input{
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-family: Outfit;
+    transition: 0.3s;
+    color: #a0a0a0;
+    flex: 1;
 }
 .footer-subscribe:hover{
     transform: scale(1.1);
