@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
-import Hero from "./Components/Hero/Hero";
-import About from "./Components/About/About";
-import Services from "./Components/Services/Services";
-import MyWork from "./Components/MyWork/MyWork";
-import Contact from "./Components/Contact/Contact";
+import Navbar from "./Components/navbar/Navbar";
+import Hero from "./Components/hero/Hero";
+import About from "./Components/about/About";
+import Services from "./Components/services/Services";
+import MyWork from "./Components/my-work/MyWork";
+import Contact from "./Components/contact/Contact";
 import Footer from "./Components/Footer/Footer";
 
 function App() {
@@ -27,20 +27,20 @@ function App() {
     window.scrollTo(0, 0);
   };
   return (
-    <div>
-      <Navbar />
+      <div>
+        <Navbar />
       <Hero />
       <About />
       <Services />
       <MyWork />
       <Contact />
-      <Footer />
-      {isVisible && (
-        <button type="button" className="scroll-to-top" onClick={scrollToTop}>
-          <i className="fa-solid fa-chevron-up"></i>
-        </button>
-      )}
-    </div>
+        <Footer />
+        {isVisible && (
+          <button type="button" className="scroll-to-top" onClick={scrollToTop}>
+            <i className="fa-solid fa-chevron-up"></i>
+          </button>
+        )}
+      </div>
   );
 }
 
