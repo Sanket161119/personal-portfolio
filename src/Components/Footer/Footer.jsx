@@ -48,7 +48,6 @@ const Footer = () => {
           <div className={emailError ? "footer-email-input-error" : "footer-email-input"}>
             <img src={user_icon} alt="" />
             <input
-              className={emailError ? "error-input" : ""}
               type="email"
               placeholder="Enter your email"
               value={email}
