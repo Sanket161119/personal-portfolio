@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './MyWork.css'
+import './my-work.css'
 import infinite from "../../assets/infinite.svg";
 import mywork from "../../assets/mywork_data"
 import arrow_icon from "../../assets/arrow_icon.svg"

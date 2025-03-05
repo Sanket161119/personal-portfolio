@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./app.css";
 import Navbar from "./Components/navbar/Navbar";
 import Hero from "./Components/hero/Hero";
 import About from "./Components/about/About";
@@ -27,20 +27,20 @@ function App() {
     window.scrollTo(0, 0);
   };
   return (
-      <div>
-        <Navbar />
+    <div>
+      <Navbar />
       <Hero />
       <About />
       <Services />
       <MyWork />
       <Contact />
-        <Footer />
-        {isVisible && (
-          <button type="button" className="scroll-to-top" onClick={scrollToTop}>
-            <i className="fa-solid fa-chevron-up"></i>
-          </button>
-        )}
-      </div>
+      <Footer />
+      {isVisible && (
+        <button type="button" className="scroll-to-top" onClick={scrollToTop}>
+          <i className="fa-solid fa-chevron-up"></i>
+        </button>
+      )}
+    </div>
   );
 }
 

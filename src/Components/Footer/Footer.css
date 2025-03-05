@@ -67,6 +67,10 @@
 .footer-bottom-right{
     display: flex;
     gap: 50px;
+    cursor: pointer;
+}
+.footer-bottom-right p:hover{
+    text-shadow: 0 0 3px white;
 }
 .social-media{
     display: flex;

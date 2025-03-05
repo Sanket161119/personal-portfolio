@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./Navbar.css";
+import "./navbar.css";
 import logo from "../../assets/logo.png";
 import underline from "../../assets/nav_underline.svg";
 import menu_open from "../../assets/menu_open.svg";
