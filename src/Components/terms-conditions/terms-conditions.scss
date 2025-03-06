@@ -1,0 +1,37 @@
+.terms-conditions {
+  .ant-modal-content {
+    background: linear-gradient(90deg, #5f7cee 0.32%, #eea9f7 110.2%);
+    color: black; /* Changed to black for better readability */
+    max-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
+    // background: red !important;
+  }
+  .ant-modal-header {
+    padding: 5px 3px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #5f7cee 0.32%, #eea9f7 110.2%);
+  }
+
+  .ant-modal-close {
+    right: 0;
+    top: 0;
+  }
+}
+
+.termsContent {
+  padding: 20px;
+  text-align: justify;
+  font-size: 14px;
+
+  h3,
+  h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 15px;
+    color: #333; /* Darker color for better readability */
+  }
+}

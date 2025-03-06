@@ -4,12 +4,14 @@ import "./footer.css";
 import logo from "../../assets/logo.png";
 import user_icon from "../../assets/user_icon.svg";
 import TermsConditions from "../terms-conditions/TermsConditions";
+import PrivacyPolicy from "../privacy-policy/privacyPolicy";
 
 const Footer = () => {
   const [isSubscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPolicyOpen, setIsPolicyOpen] =useState(false);
 
   const handleSubscribe = () => {
     if (validateEmail(email)) {
@@ -31,6 +33,12 @@ const Footer = () => {
   const handleCloseTerms = () => {
     setIsModalOpen(false);
   };
+  const handleOpenPolicy = () => {
+    setIsPolicyOpen(true);
+  }
+  const handleClosePolicy = () => {
+    setIsPolicyOpen(false);
+  }
   const handleEmailChange = (e) => {
     const inputValue = e.target.value;
     setEmail(inputValue);
@@ -80,7 +88,7 @@ const Footer = () => {
         </p>
         <div className="footer-bottom-right">
           <p onClick={handleOpenTerms}>Term of services</p>
-          <p>Privacy policy</p>
+          <p onClick={handleOpenPolicy}>Privacy policy</p>
         </div>
       </div>
       <div className="social-media">
@@ -98,6 +106,7 @@ const Footer = () => {
         </a>
       </div>
       <TermsConditions open={isModalOpen} onClose={handleCloseTerms} />
+      <PrivacyPolicy open={isPolicyOpen} onClose={handleClosePolicy}/>
     </div>
   );
 };

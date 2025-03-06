@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 120px 60px;
+    margin: 10px 60px;
     gap: 80px;
 }
 .contact-title{
@@ -105,6 +105,13 @@
 .contact-submit:hover{
     transform: scale(1.1);
     transition: 0,5s;
+}
+.error-message{
+    color: red;
+    margin-top: -25px;
+}
+.contact-right .error-input{
+    border: 2px solid red;
 }
 @media(max-width:768px){
     .contact{
