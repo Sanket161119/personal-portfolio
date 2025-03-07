@@ -80,6 +80,9 @@
 .social-media a{
     color: white;
 }
+.social-media a:hover{
+    text-shadow: 0 0 3px white;
+}
 .footer-email-input-error{
     display: flex;
     gap: 30px;

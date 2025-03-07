@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './services.css'
+import './services.scss'
 import Services_Data from '../../assets/services_data'
 import infinite from "../../assets/infinite.svg";
 import arrow from '../../assets/arrow_icon.svg'

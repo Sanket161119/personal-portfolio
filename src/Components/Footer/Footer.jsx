@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import "./footer.css";
+import "./footer.scss";
 import logo from "../../assets/logo.png";
 import user_icon from "../../assets/user_icon.svg";
 import TermsConditions from "../terms-conditions/TermsConditions";
@@ -95,13 +95,13 @@ const Footer = () => {
         <a href="#">
           <i className="fa-brands fa-facebook"></i>
         </a>
-        <a href="#">
+        <a href="https://wa.me/+919480461033">
           <i className="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="#">
+        <a href="https://www.instagram.com/shetty_sanket">
           <i className="fa-brands fa-instagram"></i>
         </a>
-        <a href="#">
+        <a href="https://linkedin.com/in/sanket-m-shetty" target="_blank" rel="noopener noreferrer">
           <i className="fa-brands fa-linkedin"></i>
         </a>
       </div>

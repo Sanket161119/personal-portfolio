@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import "./hero.css";
+import "./hero.scss";
 import profile_image from "../../assets/profile_image.jpg";
 import { Link } from "react-router-dom";
 

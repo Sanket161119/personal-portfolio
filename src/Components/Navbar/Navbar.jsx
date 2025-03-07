@@ -1,19 +1,19 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./navbar.css";
+import "./navbar.scss";
 import logo from "../../assets/logo.png";
 import underline from "../../assets/nav_underline.svg";
 import menu_open from "../../assets/menu_open.svg";
 import menu_close from "../../assets/menu_close.svg";
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("home");
+  const [menu, setMenu] = useState("");
   const menuRef = useRef();
   const location = useLocation(); // gets the current pathname of the route
 
   useEffect(() => {
     const path = location.pathname.split("/").pop(); // extracting last path name here  its "contact"
-    setMenu(path || "home"); 
+    setMenu(path || "hero"); 
   }, [location]);
 
   const openMenu = () => {
