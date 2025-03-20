@@ -1,23 +1,30 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-dom";
 import "./app.scss";
-import Navbar from "./Components/navbar/Navbar";
-import Hero from "./Components/hero/Hero";
-import About from "./Components/about/About";
-import Services from "./Components/services/Services";
-import MyWork from "./Components/my-work/MyWork";
-import Contact from "./Components/contact/Contact";
-import Footer from "./Components/Footer/Footer";
+import Hero from "./Pages/Home/Hero";
+import About from "../src/Pages/About/About"
+import Services from "./Pages/MyServices/MyServices";
+import MyWork from "./Pages/MyWork/MyWork";
+import Contact from "./Pages/Contact/Contact";
+import Others from "./Pages/Others/Others";
+import MainLayout from "./Mainlayout/MainLayout";
+import Login from "./Pages/Login/Login";
+
+const routes = [
+  // { path: "/personal-portfolio/", element: <Hero /> }
+  { path: "/personal-portfolio/home", element: <Hero /> },
+  { path: "/personal-portfolio/about", element: <About /> },
+  { path: "/personal-portfolio/services", element: <Services /> },
+  { path: "/personal-portfolio/work", element: <MyWork /> },
+  { path: "/personal-portfolio/contact", element: <Contact /> },
+  { path: "/personal-portfolio/others", element: <Others />}
+];
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    setIsVisible(window.scrollY > 300);
   };
 
   useEffect(() => {
@@ -33,16 +40,16 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="//personal-portfolio/" element={<Hero />} />
-        <Route path="/personal-portfolio/hero" element={<Hero />} />
-        <Route path="/personal-portfolio/about" element={<About />} />
-        <Route path="/personal-portfolio/services" element={<Services />} />
-        <Route path="/personal-portfolio/work" element={<MyWork />} />
-        <Route path="/personal-portfolio/contact" element={<Contact />} />
+      <Route path="/personal-portfolio/login" element={<Login />} />
+        <Route
+          path="/personal-portfolio/"
+          element={<Navigate to="/personal-portfolio/login" />}
+        />
+        {routes.map(({ path, element }) => (
+          <Route key={path} path={path} element={<MainLayout>{element}</MainLayout>} />
+        ))}
       </Routes>
-      <Footer />
       {isVisible && (
         <button type="button" className="scroll-to-top" onClick={scrollToTop}>
           <i className="fa-solid fa-chevron-up"></i>

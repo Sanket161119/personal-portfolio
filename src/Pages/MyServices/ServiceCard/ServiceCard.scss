@@ -1,0 +1,57 @@
+.modal-title {
+  font-size: 22px;
+  background: linear-gradient(201deg, #311B92 5.41%, #C2185B 100.25%);
+  font-weight: 700;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.service-card {
+  .service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      i {
+        font-size: 24px;
+        color: #4a90e2;
+      }
+
+      p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+
+        strong {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+.remove-button {
+  display: flex;
+  right: 90px;
+  margin: 13px;
+  color: white;
+  background: red;
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 6px;
+  position: absolute;
+}
+.remove-button:hover {
+  color: white;
+  transition: all 0.5s;
+  background: #4527a0;
+}

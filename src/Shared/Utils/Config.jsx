@@ -1,0 +1,1 @@
+export const fetchUrl = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=e0e54a16b8c14b95b65d174f56f63785";

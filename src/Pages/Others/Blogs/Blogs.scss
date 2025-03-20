@@ -1,0 +1,74 @@
+.blog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 60px;
+}
+.blog-title{
+  position: relative;
+}
+.blog-title h1{
+    padding: 0px 30px;
+    font-size: 60px;
+    font-weight: 600;
+}
+.blog-title img{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  right: 4px;
+  top: -3px;
+  z-index: -1;
+  rotate: -19deg;
+}
+.blog-container {
+  width: 60%;
+  height: 250px;
+  margin: 0 auto;
+  
+}
+.blog-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: fill;
+}
+.slick-list{
+  border-radius: 18px;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+.blogs {
+  margin: 0;
+  height: 250px;
+  color: #fff;
+  line-height: 160px;
+  text-align: center;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+  color: white; // Text color
+  padding: 10px; // Padding around text
+  text-shadow: 1px 1px 2px black; // Optional: add a shadow for better readability
+}
+.overlay h3 {
+  margin: 0;
+  padding: 0;
+  height: 10px;
+  display: contents;
+}
+.overlay p {
+  height: 150px;
+}
