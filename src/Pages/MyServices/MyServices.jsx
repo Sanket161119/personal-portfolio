@@ -2,8 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./MyServices.scss";
-import infinite from "../../assets/infinite.svg";
-import arrow from "../../assets/arrow_icon.svg";
+import infinite from "../../assets/Images/infinite.svg";
+import arrow from "../../assets/Images/arrow_icon.svg";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import CustomModal from "../../Shared/Components/CustomModal/CustomModal.jsx";
 import { useForm } from "react-hook-form";
@@ -111,7 +111,7 @@ const Services = () => {
       >
         <form>
           <div className="add-service">
-            <label htmlFor="serviceNumber">Service Number</label>
+            <label htmlFor="serviceNumber">Service Number <span style={{color: "red"}}>*</span></label>
             <input
               className={errors.s_no ? "service-error" : ""}
               id="serviceNumber"
@@ -126,7 +126,7 @@ const Services = () => {
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceName">Service Name</label>
+            <label htmlFor="serviceName">Service Name <span style={{color: "red"}}>*</span></label>
             <input
               id="serviceName"
               className={errors.s_name ? "service-error" : ""}
@@ -139,7 +139,7 @@ const Services = () => {
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceDesc">Service Description</label>
+            <label htmlFor="serviceDesc">Service Description <span style={{color: "red"}}>*</span></label>
             <input
               className={errors.s_desc ? "service-error" : ""}
               id="serviceDesc"
@@ -154,7 +154,7 @@ const Services = () => {
           </div>
 
           <div className="add-service">
-            <label htmlFor="servicePrice">Service Price</label>
+            <label htmlFor="servicePrice">Service Price <span style={{color: "red"}}>*</span></label>
             <input
               className={errors.price ? "service-error" : ""}
               id="servicePrice"
@@ -167,7 +167,7 @@ const Services = () => {
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceDuration">Service Duration</label>
+            <label htmlFor="serviceDuration">Service Duration <span style={{color: "red"}}>*</span></label>
             <input
               className={errors.duration ? "service-error" : ""}
               id="serviceDuration"
@@ -185,7 +185,7 @@ const Services = () => {
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceCategory">Service Category</label>
+            <label htmlFor="serviceCategory">Service Category <span style={{color: "red"}}>*</span></label>
             <input
               className={errors.category ? "service-error" : ""}
               id="serviceCategory"

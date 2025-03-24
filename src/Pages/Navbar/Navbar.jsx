@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
-import logo from "../../assets/logo.png";
-import underline from "../../assets/nav_underline.svg";
-import menu_open from "../../assets/menu_open.svg";
-import menu_close from "../../assets/menu_close.svg";
+import logo from "../../assets/Images/logo.png";
+import underline from "../../assets/Images/nav_underline.svg";
+import menu_open from "../../assets/Images/menu_open.svg";
+import menu_close from "../../assets/Images/menu_close.svg";
 
 const menuItems = [
   { path: "/personal-portfolio/home", label: "Home" },

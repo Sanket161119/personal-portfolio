@@ -1,0 +1,80 @@
+{
+    "privacyPolicy": {
+        "lastUpdated": "06-03-2025",
+        "title": "Privacy Policy for Sanket Shetty",
+        "description": "This Privacy Policy describes Our policies and procedures on the collection, use, and disclosure of Your information when You use our website and tells You about Your privacy rights and how the law protects You.",
+        "sections": [
+            {
+                "title": "Information We Collect",
+                "content": [
+                    "When you visit our website, we may collect the following types of information:",
+                    "Personal Data: While using our site, you may provide us with certain personally identifiable information that can be used to contact or identify you, such as your name, email address, and phone number.",
+                    "Usage Data: We may collect information on how the website is accessed and used. This Usage Data may include information such as your computer's Internet Protocol address (e.g., IP address), browser type, browser version, the pages of our website that you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data."
+                ]
+            },
+            {
+                "title": "How We Use Your Information",
+                "content": [
+                    "We use the collected data for various purposes:",
+                    "To provide and maintain our website",
+                    "To notify you about changes to our website",
+                    "To allow you to participate in interactive features of our website when you choose to do so",
+                    "To provide customer support",
+                    "To gather analysis or valuable information so that we can improve our website",
+                    "To monitor the usage of our website",
+                    "To detect, prevent, and address technical issues"
+                ]
+            },
+            {
+                "title": "Disclosure of Your Information",
+                "content": [
+                    "We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential."
+                ]
+            },
+            {
+                "title": "Security of Your Information",
+                "content": [
+                    "The security of your personal information is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security."
+                ]
+            },
+            {
+                "title": "Your Data Protection Rights",
+                "content": [
+                    "If you are a resident of the European Economic Area (EEA), you have certain data protection rights:",
+                    "The right to access, update or delete the information we have on you.",
+                    "The right to rectification.",
+                    "The right to object.",
+                    "The right of restriction.",
+                    "The right to data portability.",
+                    "The right to withdraw consent."
+                ]
+            },
+            {
+                "title": "Links to Other Websites",
+                "content": [
+                    "Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy and terms of service of any site you visit."
+                ]
+            },
+            {
+                "title": "Changes to This Privacy Policy",
+                "content": [
+                    "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
+                ]
+            },
+            {
+                "title": "Contact Us",
+                "content": [
+                    "If you have any questions about this Privacy Policy, please contact us:",
+                    "By email: ",
+                    "By visiting this page on our website."
+                ],
+                "contactInfo": {
+                    "email": {
+                        "href": "mailto:sankshetyy@gmail.com",
+                        "text": "sankshetyy@gmail.com"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -3,7 +3,7 @@
 import React from "react";
 import { Carousel } from "antd";
 import "./Blogs.scss";
-import infinite from "../../../assets/infinite.svg";
+import infinite from "../../../assets/Images/infinite.svg";
 
 const Blogs = ({ blogs }) => {
 

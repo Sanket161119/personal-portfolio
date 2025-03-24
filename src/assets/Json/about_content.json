@@ -1,0 +1,43 @@
+{
+    "about": {
+        "title": "About me",
+        "profileImage": "src/assets/Images/profile_image.jpg",
+        "infiniteImage": "src/assets/Images/infinite.svg",
+        "description": [
+            "I am a passionate frontend developer with a strong background in creating dynamic and responsive web applications. I specialize in HTML, CSS, JavaScript, and modern frameworks like React JS and Angular.",
+            "With a keen eye for detail and a commitment to delivering high-quality code, I enjoy turning complex problems into simple, beautiful, and intuitive designs. I am always eager to learn new technologies and improve my skills."
+        ],
+        "skills": [
+            {
+                "name": "HTML & CSS",
+                "level": "70%"
+            },
+            {
+                "name": "Javascript",
+                "level": "60%"
+            },
+            {
+                "name": "React JS",
+                "level": "50%"
+            },
+            {
+                "name": "Angular",
+                "level": "60%"
+            }
+        ],
+        "achievements": [
+            {
+                "count": "2+",
+                "description": "YEARS OF EXPERIENCE"
+            },
+            {
+                "count": "5+",
+                "description": "PROJECTS COMPLETED"
+            },
+            {
+                "count": "2+",
+                "description": "HAPPY CLIENTS"
+            }
+        ]
+    }
+}

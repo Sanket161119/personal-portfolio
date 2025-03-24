@@ -3,10 +3,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useRef } from "react";
 import "./Contact.scss";
-import infinite from "../../assets/infinite.svg";
-import mail_icon from "../../assets/mail_icon.svg";
-import location_icon from "../../assets/location_icon.svg";
-import call_icon from "../../assets/call_icon.svg";
+import infinite from "../../assets/Images/infinite.svg";
+import mail_icon from "../../assets/Images/mail_icon.svg";
+import location_icon from "../../assets/Images/location_icon.svg";
+import call_icon from "../../assets/Images/call_icon.svg";
 import { useForm } from "react-hook-form";
 const Contact = () => {
   const {
@@ -65,7 +65,7 @@ const Contact = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="contact-right">
-          <label htmlFor="userName">Your Name</label>
+          <label htmlFor="userName">Your Name <span style={{color: "red"}}>*</span></label>
           <input
             className={errors.userName ? "error-input" : ""}
             type="text"
@@ -76,7 +76,7 @@ const Contact = () => {
             <p className="error-message">{errors.userName.message}</p>
           )}
 
-          <label htmlFor="email">Your Email</label>
+          <label htmlFor="email">Your Email <span style={{color: "red"}}>*</span></label>
           <input
             className={errors.email ? "error-input" : ""}
             type="email"
@@ -93,7 +93,7 @@ const Contact = () => {
             <p className="error-message">{errors.email.message}</p>
           )}
 
-          <label htmlFor="message">Write your concern</label>
+          <label htmlFor="message">Write your concern <span style={{color: "red"}}>*</span></label>
           <textarea
             className={errors.message ? "error-input" : ""}
             rows="6"

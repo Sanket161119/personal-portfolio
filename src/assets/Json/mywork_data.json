@@ -1,0 +1,32 @@
+[
+    {
+        "w_no": 1,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_1.svg"
+    },
+    {
+        "w_no": 2,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_2.svg"
+    },
+    {
+        "w_no": 3,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_3.svg"
+    },
+    {
+        "w_no": 4,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_4.svg"
+    },
+    {
+        "w_no": 5,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_5.svg"
+    },
+    {
+        "w_no": 6,
+        "w_name": "Web design",
+        "w_img": "src/assets/Images/project_6.svg"
+    }
+]

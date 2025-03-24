@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./Footer.scss";
-import logo from "../../assets/logo.png";
-import user_icon from "../../assets/user_icon.svg";
+import logo from "../../assets/Images/logo.png";
+import user_icon from "../../assets/Images/user_icon.svg";
 import TermsConditions from "../TermsConditions/TermsConditions";
 import PrivacyPolicy from "../PrivacyPolicy/privacyPolicy";
 

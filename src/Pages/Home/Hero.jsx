@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./Hero.scss";
-import profile_image from "../../assets/profile_image.jpg";
+import profile_image from "../../assets/Images/profile_image.jpg";
 import { Link } from "react-router-dom";
 
 const Hero = () => {

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './MyWork.scss'
-import infinite from "../../assets/infinite.svg";
-import mywork from "../../assets/mywork_data"
-import arrow_icon from "../../assets/arrow_icon.svg"
+import infinite from "../../assets/Images/infinite.svg";
+import mywork from "../../assets/Json/mywork_data.json"
+import arrow_icon from "../../assets/Images/arrow_icon.svg"
 const MyWork = () => {
   return (
     <div id='work' className='mywork'>
