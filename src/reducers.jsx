@@ -3,7 +3,6 @@ import Services_Data from "./assets/services_data";
 
 const initialState = {
   services: Services_Data,
-  // user: {},
   loader: false,
 };
 const serviceSlice = createSlice({
@@ -18,13 +17,20 @@ const serviceSlice = createSlice({
         (service) => service.s_no !== action.payload.s_no
       );
     },
-    // setUser:(state, action) => {
-    //   state.user = action.payload
-    // }
+    updateService: (state, action) => {
+      console.log(action.payload);
+      const index = state.services.findIndex(
+        (service) => service.s_no === action.payload.s_no
+      );
+      if (index !== -1) {
+        state.services[index] = action.payload;
+      }
+    },
     addLoader: (state, action) => {
       state.loader = action.payload;
     },
   },
 });
-export const { addService, removeService, addLoader } = serviceSlice.actions;
+export const { addService, removeService, addLoader, updateService } =
+  serviceSlice.actions;
 export default serviceSlice.reducer;

@@ -7,20 +7,23 @@ import { removeService } from "../../../reducers.jsx";
 
 const ServiceCard = ({ isVisible, onClose, service }) => {
   const dispatchCard = useDispatch();
-  // const ServiceCard = useSelector(state => state.se)
   const removeServiceCard = () => {
-    // Services_Data.pop(service);
-    dispatchCard(removeService(service))
+    dispatchCard(removeService(service));
     onClose();
   };
   return (
     <CustomModal
       open={isVisible}
       onClose={onClose}
-      title={<span className="modal-title">{service ? service.s_name : "Service Details"}</span>}
+      title={
+        <span className="modal-title">
+          {service ? service.s_name : "Service Details"}
+        </span>
+      }
       className="service-card"
-      >
-      <hr /><br />
+    >
+      <hr />
+      <br />
       <div>
         {service ? (
           <div className="service-details">

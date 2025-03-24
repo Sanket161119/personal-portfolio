@@ -8,99 +8,106 @@ const Loader = ({ isLoading }) => {
   }
   return (
     <StyledWrapper>
-      <div className="center_div">
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
-        <div className="wave" />
+      <div id="page">
+        <div id="container">
+          <div id="ring" />
+          <div id="ring" />
+          <div id="ring" />
+          <div id="ring" />
+          <div id="h3">loading..</div>
+        </div>
       </div>
     </StyledWrapper>
   );
 }
 
 const StyledWrapper = styled.div`
-  .center_div {
+  #page {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+    height: 200px;
   }
 
-  .wave {
-    width: 1.8rem;
-    height: 150px;
-    background-color: #ff6b6b;
-    margin: 0 4px;
-    border-radius: 0.4rem;
-    animation: wave 1.5s linear infinite;
-    transform-origin: center;
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
-  @keyframes wave {
-    0% {
-      transform: scale(0);
-      filter: hue-rotate(90deg) blur(100px);
+  #h3 {
+    font-size: 25px;
+    // color: #2d9384;
+  }
+
+  #ring {
+    width: 190px;
+    height: 190px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  #ring:nth-child(1) {
+    border-bottom: 8px solid #ef00ff;
+    animation: rotate1 2s linear infinite;
+  }
+
+  @keyframes rotate1 {
+    from {
+      transform: rotateX(50deg) rotateZ(110deg);
     }
-    25% {
-      transform: scale(0);
-      filter: hue-rotate(120deg) blur(50px);
-    }
-    50% {
-      transform: scale(1);
-      filter: hue-rotate(180deg) blur(25px);
-    }
-    25% {
-      transform: scale(0);
-      filter: hue-rotate(360deg) blur(2px);
-    }
-    100% {
-      transform: scale(0);
-      filter: hue-rotate(0deg) blur(0);
+
+    to {
+      transform: rotateX(50deg) rotateZ(470deg);
     }
   }
 
-  .wave:nth-child(2) {
-    animation-delay: 0.1s;
+  #ring:nth-child(2) {
+    border-bottom: 8px solid #37006e;
+    animation: rotate2 2s linear infinite;
   }
 
-  .wave:nth-child(3) {
-    animation-delay: 0.2s;
+  @keyframes rotate2 {
+    from {
+      transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+    }
+
+    to {
+      transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+    }
   }
 
-  .wave:nth-child(4) {
-    animation-delay: 0.3s;
+  #ring:nth-child(3) {
+    border-bottom: 8px solid #5200ff;
+    animation: rotate3 2s linear infinite;
   }
 
-  .wave:nth-child(5) {
-    animation-delay: 0.4s;
+  @keyframes rotate3 {
+    from {
+      transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+    }
+
+    to {
+      transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+    }
   }
 
-  .wave:nth-child(6) {
-    animation-delay: 0.5s;
+  #ring:nth-child(4) {
+    border-bottom: 8px solid #5a035e;
+    animation: rotate4 2s linear infinite;
   }
 
-  .wave:nth-child(7) {
-    animation-delay: 0.6s;
-  }
+  @keyframes rotate4 {
+    from {
+      transform: rotateX(70deg) rotateZ(270deg);
+    }
 
-  .wave:nth-child(8) {
-    animation-delay: 0.7s;
-  }
-
-  .wave:nth-child(9) {
-    animation-delay: 0.8s;
-  }
-
-  .wave:nth-child(10) {
-    animation-delay: 0.9s;
+    to {
+      transform: rotateX(70deg) rotateZ(630deg);
+    }
   }`;
 
-
-
 export default Loader;
+

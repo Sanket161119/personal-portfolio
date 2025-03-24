@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./MyServices.scss";
-// import Services_Data from "../../assets/services_data";
 import infinite from "../../assets/infinite.svg";
 import arrow from "../../assets/arrow_icon.svg";
 import ServiceCard from "./ServiceCard/ServiceCard";
@@ -10,11 +9,13 @@ import CustomModal from "../../Shared/Components/CustomModal/CustomModal.jsx";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addService } from "../../reducers.jsx";
+import EditModal from "./EditModal/EditModal.jsx";
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModal, setIsEditModal] = useState(false);
   const {
     register,
     handleSubmit,
@@ -44,13 +45,16 @@ const Services = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(addService(data));
-    // Services_Data.push(data); // pushing data to json
-    // console.log("Updated json", Services_Data);
     closeAddModal();
   };
-
+  const handleEdit = (service) => {
+    setIsEditModal(true);
+    setSelectedService(service);
+  };
+  const closeEditModal = () => {
+    setIsEditModal(false);
+  };
   return (
     <div id="services" className="services">
       <div className="services-title">
@@ -60,16 +64,24 @@ const Services = () => {
       <div className="services-container">
         {services.map((service, index) => {
           return (
-            <div
-              key={index}
-              className="services-format"
-              onClick={() => {
-                handleServiceCard(service);
-              }}
-            >
+            <div key={index} className="services-format">
+              <div className="edit">
+                <button
+                  onClick={() => {
+                    handleEdit(service);
+                  }}
+                >
+                  <i className="fa-regular fa-pen-to-square"></i>
+                </button>
+              </div>
               <h3>{service.s_no}</h3>
               <h2>{service.s_name}</h2>
-              <div className="services-readomore">
+              <div
+                className="services-readomore"
+                onClick={() => {
+                  handleServiceCard(service);
+                }}
+              >
                 <p className="readmore">Read More</p>
                 <img src={arrow} alt="" />
               </div>
@@ -84,6 +96,12 @@ const Services = () => {
         isVisible={isModalOpen}
         onClose={closeModal}
         service={selectedService}
+      />
+      <EditModal
+        openEditModal={isEditModal}
+        onClose={closeEditModal}
+        service={selectedService}
+        // showSubmitButton={true}
       />
       <CustomModal
         open={isAddModalOpen}

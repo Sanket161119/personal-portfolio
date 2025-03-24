@@ -9,6 +9,7 @@ import Contact from "./Pages/Contact/Contact";
 import Others from "./Pages/Others/Others";
 import MainLayout from "./Mainlayout/MainLayout";
 import Login from "./Pages/Login/Login";
+import ProtectedRoute from "./Pages/Token/Token";
 
 const routes = [
   // { path: "/personal-portfolio/", element: <Hero /> }
@@ -47,7 +48,7 @@ function App() {
           element={<Navigate to="/personal-portfolio/login" />}
         />
         {routes.map(({ path, element }) => (
-          <Route key={path} path={path} element={<MainLayout>{element}</MainLayout>} />
+          <Route key={path} path={path} element={<ProtectedRoute><MainLayout>{element}</MainLayout></ProtectedRoute>} />
         ))}
       </Routes>
       {isVisible && (
