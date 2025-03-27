@@ -12,7 +12,6 @@ import Login from "./Pages/Login/Login";
 import ProtectedRoute from "./Pages/Token/Token";
 
 const routes = [
-  // { path: "/personal-portfolio/", element: <Hero /> }
   { path: "/personal-portfolio/home", element: <Hero /> },
   { path: "/personal-portfolio/about", element: <About /> },
   { path: "/personal-portfolio/services", element: <Services /> },
