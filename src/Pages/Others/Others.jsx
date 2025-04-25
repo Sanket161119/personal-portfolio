@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Blogs from "./Blogs/Blogs";
 import Loader from "../../Shared/Components/Loader/Loader";
-import httpLayer from "../../Services/httpLayer";
+import httpLayer from "../../Services/Httplayer";
 import { useSelector } from "react-redux";
 
 const Others = () => {
@@ -12,14 +12,12 @@ const Others = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const blogResponse = await httpLayer.getRequest();
+        const blogResponse = await httpLayer.getBlogArticles();
         setData({
           blogs: blogResponse,
         });
       } catch (error) {
         console.error("Error fetching data", error);
-      } finally {
-        setTimeout(() => {}, 2000);
       }
     };
     fetchData();

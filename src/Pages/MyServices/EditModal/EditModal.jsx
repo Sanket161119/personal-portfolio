@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CustomModal from "../../../Shared/Components/CustomModal/CustomModal";
 import "./EditModal.scss";
-import { useDispatch } from "react-redux";
-import { updateService } from "../../../reducers.jsx";
-import { useEffect } from "react";
-
-const EditModal = ({ openEditModal, onClose, service }) => {
+import httpLayer from "../../../Services/Httplayer";
+import {UPDATE_SERVICE_DATA} from "../../../Shared/Utils/Config.jsx"
+const EditModal = ({ openEditModal, onClose, service, openNotification }) => {
   const [formData, setFormData] = useState({
     s_name: "",
     s_desc: "",
@@ -14,35 +12,46 @@ const EditModal = ({ openEditModal, onClose, service }) => {
     duration: "",
     category: "",
   });
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (service) {
       setFormData({
-        s_name: service.s_name || "",
-        s_desc: service.s_desc || "",
-        price: service.price || "",
-        duration: service.duration || "",
-        category: service.category || "",
+        s_name: service.service_name || "",
+        s_desc: service.service_description || "",
+        price: service.service_price || "",
+        duration: service.service_duration || "",
+        category: service.service_category || "",
       });
-    }
+    } 
   }, [service]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       [name]: value,
-    });
+    }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const updatedService = {
-      ...formData,
-      s_no: service.s_no, // Include the service number
+      service_number:service.service_number,
+      service_name: formData.s_name,
+      service_description: formData.s_desc,
+      service_price: parseFloat(formData.price),
+      service_duration: formData.duration,
+      service_category: formData.category,
     };
-    dispatch(updateService(updatedService));
-    onClose();
+    try {
+      const response = await httpLayer.putRequest(UPDATE_SERVICE_DATA, updatedService);
+      openNotification(response.status, response.message, "Service updated successfully!")
+      return response;
+    } catch (error) {
+      console.error("Error updating service:", error);
+    }
+    finally{
+      onClose();
+    }
   };
 
   return (
@@ -54,6 +63,14 @@ const EditModal = ({ openEditModal, onClose, service }) => {
     >
       <div>
         <div className="edit-container">
+        <div className="edit-form">
+            <label htmlFor="name">Name</label>
+            <input
+              name="s_name"
+              value={formData.s_name}
+              onChange={handleChange}
+            />
+          </div>
           <div className="edit-form">
             <label htmlFor="desc">Description</label>
             <textarea
@@ -77,7 +94,7 @@ const EditModal = ({ openEditModal, onClose, service }) => {
             <label htmlFor="duration">Duration</label>
             <input
               name="duration"
-              type="text"
+              type="time"
               value={formData.duration}
               onChange={handleChange}
             />

@@ -1,29 +1,55 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MyServices.scss";
 import infinite from "../../assets/Images/infinite.svg";
 import arrow from "../../assets/Images/arrow_icon.svg";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import CustomModal from "../../Shared/Components/CustomModal/CustomModal.jsx";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { addService } from "../../reducers.jsx";
 import EditModal from "./EditModal/EditModal.jsx";
+import httpLayer from "../../Services/Httplayer.jsx";
+import { useDispatch, useSelector } from "react-redux"; // Import useDispatch and useSelector
+import { addLoader } from "../../reducers.jsx"; // Import addLoader action
+import Loader from "../../Shared/Components/Loader/Loader.jsx";
+import { INSERT_SERVICE_DATA } from "../../Shared/Utils/Config.jsx";
+import { FETCH_SERVICE_DATA } from "../../Shared/Utils/Config.jsx";
+import Notification from "../../Shared/Components/Notification/Notification.jsx";
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModal, setIsEditModal] = useState(false);
+  const [services, setServices] = useState([]);
+  const isLoading = useSelector((state) => state.services.loader); // Access loader from Redux store
+  const dispatch = useDispatch(); 
+  const { openNotification, contextHolder } = Notification();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const dispatch = useDispatch();
-  const services = useSelector((state) => state.services.services);
+
+  // Fetch services from the database on component mount
+  useEffect(() => {
+    fetchServices();
+  }, []);
+
+  // Function to fetch services from the API
+  const fetchServices = async () => {
+    try {
+      const response = await httpLayer.getRequest(FETCH_SERVICE_DATA);
+      console.log("Response", response)
+      if (response) {
+        setServices(response);
+      }
+    } catch (error) {
+      console.error("Failed to fetch services:", error);
+    }
+  };
 
   const handleServiceCard = (service) => {
     setSelectedService(service);
@@ -44,50 +70,80 @@ const Services = () => {
     reset();
   };
 
-  const onSubmit = (data) => {
-    dispatch(addService(data));
-    closeAddModal();
+  const onSubmit = async (data) => {
+    dispatch(addLoader(true));
+    try {
+      const payload = {
+        service_number: parseInt(data.service_number, 10),
+        service_name: data.service_name,
+        service_description: data.service_description,
+        service_price: parseFloat(data.service_price),
+        service_duration: data.service_duration,
+        service_category: data.service_category,
+      };
+      const response = await httpLayer.postRequest(
+        INSERT_SERVICE_DATA,
+        payload
+      );
+      fetchServices();
+      openNotification(response.status, response.message, 'Service added successfully!')
+      return response;
+    } catch (error) {
+      console.error("Failed to add service:", error);
+    } finally {
+      dispatch(addLoader(false));
+      closeAddModal();
+    }
   };
+
   const handleEdit = (service) => {
     setIsEditModal(true);
     setSelectedService(service);
   };
+
   const closeEditModal = () => {
     setIsEditModal(false);
+    fetchServices();
   };
+
   return (
     <div id="services" className="services">
+      {contextHolder}
       <div className="services-title">
         <h1>My Services</h1>
         <img src={infinite} alt="" />
       </div>
       <div className="services-container">
-        {services.map((service, index) => {
-          return (
-            <div key={index} className="services-format">
-              <div className="edit">
-                <button
+        {isLoading ? (
+          <Loader isLoading={isLoading} />
+        ) : (
+          services.map((service, index) => {
+            return (
+              <div key={index} className="services-format">
+                <div className="edit">
+                  <button
+                    onClick={() => {
+                      handleEdit(service);
+                    }}
+                  >
+                    <i className="fa-regular fa-pen-to-square"></i>
+                  </button>
+                </div>
+                <h3>{service.service_number}</h3>
+                <h2>{service.service_name}</h2>
+                <div
+                  className="services-readomore"
                   onClick={() => {
-                    handleEdit(service);
+                    handleServiceCard(service);
                   }}
                 >
-                  <i className="fa-regular fa-pen-to-square"></i>
-                </button>
+                  <p className="readmore">Read More</p>
+                  <img src={arrow} alt="" />
+                </div>
               </div>
-              <h3>{service.s_no}</h3>
-              <h2>{service.s_name}</h2>
-              <div
-                className="services-readomore"
-                onClick={() => {
-                  handleServiceCard(service);
-                }}
-              >
-                <p className="readmore">Read More</p>
-                <img src={arrow} alt="" />
-              </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
       <button className="add-service-button" onClick={handleAddService}>
         Add
@@ -96,12 +152,14 @@ const Services = () => {
         isVisible={isModalOpen}
         onClose={closeModal}
         service={selectedService}
+        refreshServices={fetchServices}
+        openNotification = {openNotification}
       />
       <EditModal
         openEditModal={isEditModal}
         onClose={closeEditModal}
         service={selectedService}
-        // showSubmitButton={true}
+        openNotification={openNotification}
       />
       <CustomModal
         open={isAddModalOpen}
@@ -111,91 +169,120 @@ const Services = () => {
       >
         <form>
           <div className="add-service">
-            <label htmlFor="serviceNumber">Service Number <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="serviceNumber">
+              Service Number <span style={{ color: "red" }}>*</span>
+            </label>
             <input
-              className={errors.s_no ? "service-error" : ""}
+              className={errors.service_number ? "service-error" : ""}
               id="serviceNumber"
               placeholder="Enter service number"
-              {...register("s_no", {
+              {...register("service_number", {
                 required: "Service number is required",
               })}
             />
-            {errors.s_no && (
-              <p className="service-error-message">{errors.s_no.message}</p>
+            {errors.service_number && (
+              <p className="service-error-message">
+                {errors.service_number.message}
+              </p>
             )}
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceName">Service Name <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="serviceName">
+              Service Name <span style={{ color: "red" }}>*</span>
+            </label>
             <input
               id="serviceName"
-              className={errors.s_name ? "service-error" : ""}
+              className={errors.service_name ? "service-error" : ""}
               placeholder="Enter service name"
-              {...register("s_name", { required: "Service name is required" })}
+              {...register("service_name", {
+                required: "Service name is required",
+              })}
             />
-            {errors.s_name && (
-              <p className="service-error-message">{errors.s_name.message}</p>
+            {errors.service_name && (
+              <p className="service-error-message">
+                {errors.service_name.message}
+              </p>
             )}
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceDesc">Service Description <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="serviceDesc">
+              Service Description <span style={{ color: "red" }}>*</span>
+            </label>
             <input
-              className={errors.s_desc ? "service-error" : ""}
+              className={errors.service_description ? "service-error" : ""}
               id="serviceDesc"
               placeholder="Enter service description"
-              {...register("s_desc", {
+              {...register("service_description", {
                 required: "Service description is required",
               })}
             />
-            {errors.s_desc && (
-              <p className="service-error-message">{errors.s_desc.message}</p>
+            {errors.service_description && (
+              <p className="service-error-message">
+                {errors.service_description.message}
+              </p>
             )}
           </div>
 
           <div className="add-service">
-            <label htmlFor="servicePrice">Service Price <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="servicePrice">
+              Service Price <span style={{ color: "red" }}>*</span>
+            </label>
             <input
-              className={errors.price ? "service-error" : ""}
+              className={errors.service_price ? "service-error" : ""}
               id="servicePrice"
+              type="number"
               placeholder="Enter service price"
-              {...register("price", { required: "Service price is required" })}
+              {...register("service_price", {
+                required: "Service price is required",
+              })}
             />
-            {errors.price && (
-              <p className="service-error-message">{errors.price.message}</p>
+            {errors.service_price && (
+              <p className="service-error-message">
+                {errors.service_price.message}
+              </p>
             )}
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceDuration">Service Duration <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="serviceDuration">
+              Service Duration <span style={{ color: "red" }}>*</span>
+            </label>
             <input
-              className={errors.duration ? "service-error" : ""}
+              className={errors.service_duration ? "service-error" : ""}
               id="serviceDuration"
               placeholder="Enter service duration"
               type="number"
-              {...register("duration", {
+              {...register("service_duration", {
                 required: "Service duration is required",
                 valueAsNumber: true,
                 validate: (value) => !isNaN(value) || "Should be a number",
               })}
             />
-            {errors.duration && (
-              <p className="service-error-message">{errors.duration.message}</p>
+            {errors.service_duration && (
+              <p className="service-error-message">
+                {errors.service_duration.message}
+              </p>
             )}
           </div>
 
           <div className="add-service">
-            <label htmlFor="serviceCategory">Service Category <span style={{color: "red"}}>*</span></label>
+            <label htmlFor="serviceCategory">
+              Service Category <span style={{ color: "red" }}>*</span>
+            </label>
             <input
-              className={errors.category ? "service-error" : ""}
+              className={errors.service_category ? "service-error" : ""}
               id="serviceCategory"
               placeholder="Enter service category"
-              {...register("category", {
+              {...register("service_category", {
                 required: "Service category is required",
               })}
             />
-            {errors.category && (
-              <p className="service-error-message">{errors.category.message}</p>
+            {errors.service_category && (
+              <p className="service-error-message">
+                {errors.service_category.message}
+              </p>
             )}
           </div>
         </form>

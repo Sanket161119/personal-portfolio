@@ -26,17 +26,20 @@
 .services-format {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  padding: 60px;
-  border-radius: 10px;
-  border: 2px solid white;
-  transition: 0.3s;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px; 
+  border: 2px solid white; 
+  transition: 0.3s; 
+  width: 300px; 
+  height: 200px; 
 }
 .services-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 40px; 
   margin-bottom: 80px;
 }
 .services-format h3 {
@@ -101,20 +104,29 @@ input,textarea {
   border: none;
   width: auto;
   height: 40px;
-  padding: 2px;
+  padding: 4px;
   margin: 10px;
   border-radius: 4px;
   color: #a0a0a0;
   background: #32323c;
   font-family: Outfit;
-  font-size: 20px;
+  font-size: 16px;
+}
+.servie-timepicker{
+  border: none;
+  width: auto;
+  height: 40px;
+  margin: 10px;
+  border-radius: 4px;
+  color: #a0a0a0;
+  background: #32323c;
 }
 .add-service .service-error {
   border: 2px solid red;
 }
 .service-error-message {
   color: red;
-  margin-top: -15px;
+  margin-top: 0;
   margin-left: 8px;
   font-weight: 400;
   font-size: 18px;
@@ -123,7 +135,7 @@ input,textarea {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: -50px -50px 0px 0px;
+  margin: 0px -250px 0px 20px;
 }
 .edit button{
   cursor: pointer;
